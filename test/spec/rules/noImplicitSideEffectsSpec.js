@@ -7,39 +7,39 @@ const ruleTester = new RuleTester();
 ruleTester.run("no-implicit-side-effects", rule, {
     valid: [{
         parser: "babel-eslint",
-        code: `const a = 1`,
+        code: "const a = 1",
     }, {
         parser: "babel-eslint",
-        code: `let a = 1`,
+        code: "let a = 1",
     }, {
         parser: "babel-eslint",
-        code: `var a = 1`,
+        code: "var a = 1",
     }, {
         parser: "babel-eslint",
-        code: `void (a = 1)`,
+        code: "void (a = 1)",
     }, {
         parser: "babel-eslint",
-        code: `var a = foo()`,
+        code: "var a = foo()",
     }, {
         parser: "babel-eslint",
-        code: `void foo()`,
+        code: "void foo()",
     }],
 
     invalid: [{
         parser: "babel-eslint",
         errors: [VOID_ERROR],
-        code: `a = 2`,
+        code: "a = 2",
     }, {
         parser: "babel-eslint",
         errors: [VOID_ERROR],
-        code: `a = 2`,
+        code: "a = 2",
     }, {
         parser: "babel-eslint",
         errors: [VOID_ERROR],
-        code: `foo()`,
+        code: "foo()",
     }, {
         parser: "babel-eslint",
         errors: [VOID_ERROR],
-        code: `foo()`,
+        code: "foo()",
     }],
 });
